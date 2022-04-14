@@ -5,7 +5,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/api/:time", (req, res, next) => {
+app.use("/api/:date", (req, res, next) => {
   const params = req.params.time;
   let timeUTC;
   let timeUnix;
