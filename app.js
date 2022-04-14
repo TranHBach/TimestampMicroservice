@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(helmet())
 app.use("/api/:date", (req, res, next) => {
-  const params = req.params.time;
+  const params = req.params.date;
   let timeUTC;
   let timeUnix;
 
