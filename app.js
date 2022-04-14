@@ -8,6 +8,14 @@ app.set("views", "views");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(helmet())
+app.use((req, res, next) => {
+  res.set({
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "OPTIONS, GET, POST, PUT, PATCH, DELETE",
+    "Access-Control-Allow-Headers": "Content-Type",
+  });
+  next();
+});
 app.use("/api/:date", (req, res, next) => {
   const params = req.params.date;
   let timeUTC;
