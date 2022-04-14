@@ -2,9 +2,12 @@ const path = require("path");
 const express = require("express");
 
 const app = express();
+const helmet = require("helmet");
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(helmet())
 app.use("/api/:date", (req, res, next) => {
   const params = req.params.time;
   let timeUTC;
