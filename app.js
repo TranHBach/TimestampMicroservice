@@ -27,9 +27,7 @@ app.use("/api/:date", (req, res, next) => {
   };
 
   if (timeUTC === "Invalid Date") {
-    return res.render("api", {
-      result: JSON.stringify({ error: "Invalid Date" }),
-    });
+    return res.json({ error: "Invalid Date" })
   }
   return res.json(result);
 });
